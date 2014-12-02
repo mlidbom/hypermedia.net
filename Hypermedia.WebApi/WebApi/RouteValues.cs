@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
+using Composable.Hypermedia.Linq.Expressions;
 
 namespace Composable.Hypermedia.WebApi
 {
@@ -8,6 +10,7 @@ namespace Composable.Hypermedia.WebApi
     {
         private readonly LambdaExpression _lamba;
         private readonly MethodCallExpression _controllerCall;
+        private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
 
         public static RouteValues Create<TController, TResponse>(Expression<Func<TController, TResponse>> controllerCall)
         {
@@ -20,7 +23,24 @@ namespace Composable.Hypermedia.WebApi
 
             _controllerCall = ExtractControllerCall();
 
-            Controller = ExtractControllerName();
+            _values["controller"] = Controller = ExtractControllerName();
+            _values["action"] = Action;
+
+            foreach(var argument in ExtractArguments())
+            {
+                _values[argument.ParameterName] = argument.Argument.ExtractValue();
+            }
+        }
+
+        private ArgumentSpecification[] ExtractArguments()
+        {
+            return _controllerCall.Arguments.Select(
+                (argument, index) => new ArgumentSpecification
+                          {
+                              Index = index,
+                              Argument = argument,
+                              ParameterName = _controllerCall.Method.GetParameters()[index].Name
+                          }).ToArray();
         }
 
         private string ExtractControllerName()
@@ -45,6 +65,13 @@ namespace Composable.Hypermedia.WebApi
 
         public string Action { get { return _controllerCall.Method.Name; } }
 
-        public IReadOnlyDictionary<string, object> Values { get; private set; }
+        public IReadOnlyDictionary<string, object> Values { get { return _values; } }
+
+        internal class ArgumentSpecification
+        {
+            public int Index { get; set; }
+            public Expression Argument { get; set; }
+            public string ParameterName { get; set; }
+        }
     }
 }
