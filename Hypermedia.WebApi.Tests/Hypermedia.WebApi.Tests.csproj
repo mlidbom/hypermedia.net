@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="When_extracting_route_values\From_controller_method_with_no_arguments.cs" />
+    <Compile Include="When_extracting_route_values\From_local_variables.cs" />
     <Compile Include="When_extracting_route_values\From_method_Echo_with_single_string_argument_on_controller_EchoController.cs" />
   </ItemGroup>
   <ItemGroup>
