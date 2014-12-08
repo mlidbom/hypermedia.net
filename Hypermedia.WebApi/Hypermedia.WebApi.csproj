@@ -61,6 +61,7 @@
     <Compile Include="Link.cs" />
     <Compile Include="Linq\Expressions\ExpressionValueExtractor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebApi\LamdaBasedUrlHelper.cs" />
     <Compile Include="WebApi\RouteValues.cs" />
   </ItemGroup>
   <ItemGroup>

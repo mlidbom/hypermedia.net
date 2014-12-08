@@ -66,6 +66,7 @@
     <Compile Include="When_extracting_route_values\From_local_variables.cs" />
     <Compile Include="When_extracting_route_values\From_method_Echo_with_single_string_argument_on_controller_EchoController - Copy.cs" />
     <Compile Include="When_extracting_route_values\From_method_Echo_with_single_string_argument_on_controller_EchoController.cs" />
+    <Compile Include="When_generating_links\satnoehu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
