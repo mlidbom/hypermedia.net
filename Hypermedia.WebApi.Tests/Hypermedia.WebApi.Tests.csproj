@@ -64,6 +64,7 @@
     <Compile Include="When_extracting_route_values\From_call_with_single_nullable_int_named_argument_with_value_1.cs" />
     <Compile Include="When_extracting_route_values\From_local_properties.cs" />
     <Compile Include="When_extracting_route_values\From_local_variables.cs" />
+    <Compile Include="When_extracting_route_values\From_method_Echo_with_single_string_argument_on_controller_EchoController - Copy.cs" />
     <Compile Include="When_extracting_route_values\From_method_Echo_with_single_string_argument_on_controller_EchoController.cs" />
   </ItemGroup>
   <ItemGroup>

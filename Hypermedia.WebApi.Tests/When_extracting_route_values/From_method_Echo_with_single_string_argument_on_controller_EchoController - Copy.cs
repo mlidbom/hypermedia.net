@@ -6,14 +6,9 @@ using NUnit.Framework;
 namespace Hypermedia.WebApi.Tests.When_extracting_route_values
 {
     [TestFixture]
-    public class From_method_Echo_with_single_string_parameter_text_with_argument_value_hello_coming_from_member_access
+    public class From_method_Echo_with_single_string_parameter_text_with_argument_value_hello_on_controller_EchoController
     {
         private RouteValues _values;
-
-        private class ValueHolder
-        {
-            public string Value { get; set; }
-        }
 
         public class MyEchoController : ApiController
         {
@@ -26,8 +21,19 @@ namespace Hypermedia.WebApi.Tests.When_extracting_route_values
         [SetUp]
         public void CreateValues()
         {
-            var valueHolder = new ValueHolder() {Value = "hello"};
-            _values = RouteValues.Create((MyEchoController controller) => controller.Echo(valueHolder.Value));
+            _values = RouteValues.Create((MyEchoController controller) => controller.Echo("hello"));
+        }
+
+        [Test]
+        public void Controller_is_Echo()
+        {
+            _values.Controller.Should().Be("MyEcho");
+        }
+
+        [Test]
+        public void Action_is_Echo()
+        {
+            _values.Action.Should().Be("Echo");
         }
 
         [Test]
