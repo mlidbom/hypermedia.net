@@ -31,7 +31,7 @@ namespace Hypermedia.WebApi.Tests.When_generating_links
         private void AssertLamdaCreatesExpectedLink<TController, TResult>(Expression<Func<TController, TResult>> expression, string expectedLink)
         {
             UrlHelper
-                .Link((EchoController controller) => controller.GetIndex())
+                .Link(expression)
                 .Url
                 .Should()
                 .Be("http://localhost/" + expectedLink);
