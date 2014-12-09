@@ -10,7 +10,7 @@ namespace Composable.Hypermedia.WebApi
 {
     public class RouteValues
     {
-        private readonly LambdaExpression _lamba;
+        private readonly LambdaExpression _lambda;
         private readonly MethodCallExpression _controllerCall;
         private readonly Dictionary<string, object> _values = new Dictionary<string, object>();
 
@@ -21,7 +21,7 @@ namespace Composable.Hypermedia.WebApi
 
         public RouteValues(LambdaExpression controllerMethodCall)
         {
-            _lamba = controllerMethodCall;
+            _lambda = controllerMethodCall;
 
             _controllerCall = ExtractControllerCall();
 
@@ -65,7 +65,7 @@ namespace Composable.Hypermedia.WebApi
 
         private MethodCallExpression ExtractControllerCall()
         {
-            var methodCall = _lamba.Body as MethodCallExpression;
+            var methodCall = _lambda.Body as MethodCallExpression;
             if(methodCall == null)
             {
                 throw new Exception("lambda must be a call to a controller method");
