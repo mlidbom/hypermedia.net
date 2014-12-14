@@ -79,7 +79,7 @@
     <Compile Include="When_extracting_route_values\From_method_Echo_with_single_string_argument_on_controller_EchoController - Copy.cs" />
     <Compile Include="When_extracting_route_values\From_method_Echo_with_single_string_argument_on_controller_EchoController.cs" />
     <Compile Include="JetBrains.Annotations.cs" />
-    <Compile Include="When_generating_links\Link_is_correct_when_generating_to_method_with_string_arguments.cs" />
+    <Compile Include="When_generating_links\Link_is_correct_for_method_with_string_arguments.cs" />
     <Compile Include="When_generating_links\To_method_with_no_arguments.cs" />
     <Compile Include="When_generating_links\UrlGenerationTest.cs" />
     <Compile Include="When_generating_links\UrlGenerationTestController.cs" />

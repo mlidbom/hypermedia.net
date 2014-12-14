@@ -13,7 +13,7 @@ namespace Hypermedia.WebApi.Tests.When_generating_links
         public class MethodWithSingleStringArgumentController : UrlGenerationTestController
         {
             [Route(OneArgumentRouteTemplate)]
-            public string OneArgument(string text)
+            public string OneArgument(string text) 
             {
                 throw new NotImplementedException();
             }
