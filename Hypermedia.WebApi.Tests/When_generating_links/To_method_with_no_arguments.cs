@@ -10,7 +10,7 @@ namespace Hypermedia.WebApi.Tests.When_generating_links
     {
         public class EchoController : ApiController
         {
-            [Route("Hypermedia.WebApi.Tests.When_generating_links/index", Name = "46661ABC-8C41-4DDB-B54C-D2935B2C7808")]
+            [Route("Hypermedia.WebApi.Tests.When_generating_links/index")]
             public string GetIndex()
             {
                 throw new NotImplementedException();

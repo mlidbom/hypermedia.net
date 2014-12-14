@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using Composable.Hypermedia.Linq.Expressions;
 
 namespace Composable.Hypermedia.WebApi
@@ -64,7 +65,12 @@ namespace Composable.Hypermedia.WebApi
         public Type ControllerType { get; private set; }
         public string Controller { get; private set; }
 
-        public string Action { get { return ControllerCall.Method.Name; } }
+        public string Action { get { return ActionMethodInfo.Name; } }
+
+        public MethodInfo ActionMethodInfo
+        {
+            get { return ControllerCall.Method; }
+        }
 
         public IReadOnlyDictionary<string, object> Values { get { return _values; } }
 

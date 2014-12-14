@@ -19,7 +19,7 @@ namespace Hypermedia.WebApi.Tests.When_generating_links
                 if(helper == null)
                 {
                     var httpConfiguration = new HttpConfiguration();
-                    httpConfiguration.MapHttpAttributeRoutes();
+                    httpConfiguration.MapHttpAttributeRoutes(new AutoNamingRouteProvider());
                     httpConfiguration.EnsureInitialized();
                     HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, "http://localhost");
                     request.SetConfiguration(httpConfiguration);
